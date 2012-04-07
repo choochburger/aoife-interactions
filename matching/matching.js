@@ -65,6 +65,7 @@ jQuery(function() {
       cardHeight = $container.data('card-height');
 
       $('.card').css({
+        'line-height': cardHeight,
         'width': cardWidth,
         'height': cardHeight
       });
