@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../shared/css/smoothness/jquery-ui-1.8.18.custom.css" type="text/css" />
+
+  <script src="../shared/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+  <script src="../shared/js/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+  <!-- edit this -->
+  <h2>Daily Routine:</h2>
+  <!-- --------- -->
+
+  <ul id="sortable">
+
+    <!-- edit these -->
+
+    <li>
+      Dinner
+    </li>
+
+    <li>
+      Breakfast
+    </li>
+
+    <li>
+      Lunch
+    </li>
+
+    <!-- stop editing here! -->
+
+  </ul>
+
+
+  <style>
+    body {
+      font-family: Arial;
+      font-size: 36px;
+      text-align: center;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      cursor: move;
+      margin-bottom: 4px;
+      padding: 8px;
+    }
+  </style>
+
+  <script type="text/javascript">
+    $(function() {
+      var $el;
+
+      $el = $('#sortable');
+      $el.find('li').addClass('ui-state-default');
+      $el.sortable()
+         .disableSelection();
+    });
+  </script>
+
+</body>
+
+</html>
