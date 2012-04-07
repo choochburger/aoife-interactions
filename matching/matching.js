@@ -30,7 +30,7 @@ jQuery(function() {
         $bothCards  = $firstCard.add($secondCard);
 
         // assign same id to both for later comparison
-        $bothCards.data('id', cards.length);
+        $bothCards.data('match-id', cards.length);
 
         cards.push($firstCard);
         cards.push($secondCard);
@@ -98,7 +98,7 @@ jQuery(function() {
       $firstCardContent  = $firstCard.find('div:first');
       $secondCardContent = $secondCard.find('div:first');
 
-      if ($firstCardContent.data('id') === $secondCardContent.data('id')) {
+      if ($firstCardContent.data('match-id') === $secondCardContent.data('match-id')) {
         $bothCards.addClass('correct');
         $('.card.face-down').click( $.proxy(_this.cardClick, _this) );
       } else {
