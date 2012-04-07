@@ -4,11 +4,14 @@ jQuery(function() {
   MatchingGame = {
 
     init: function() {
-      var cards;
+      var cards,
+          $container;
 
       cards = this.createPairs($('.pair'));
+      $container = $('.container');
 
-      this.renderCards($('.container'), cards);
+      this.renderCards($container, cards);
+      this.applyUserSettings($container)
     },
 
     // pair up the items and return them all
@@ -54,6 +57,19 @@ jQuery(function() {
                         .append(cardContent)
                         .appendTo($container)
                         .click( $.proxy(_this.cardClick, _this) )
+      });
+    },
+
+    applyUserSettings: function($container) {
+      var cardWidth,
+          cardHeight;
+
+      cardWidth  = $container.data('card-width');
+      cardHeight = $container.data('card-height');
+
+      $('.card').css({
+        'width': cardWidth,
+        'height': cardHeight
       });
     },
 

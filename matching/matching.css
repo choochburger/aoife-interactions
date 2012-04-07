@@ -17,6 +17,12 @@
   border-color: #999;
 }
 
+.card img {
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+}
+
 .card.face-down div {
   display: none;
 }
@@ -27,6 +33,7 @@
 
 .card.correct {
   border-color: green;
+  opacity: 0.8;
 }
 
 .card.incorrect {
