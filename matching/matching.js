@@ -19,21 +19,18 @@ jQuery(function() {
       var $entry,
           $firstCard,
           $secondCard,
+          $bothCards,
           cards = [];
 
       $pairs.each(function() {
-        var $entry,
-            $firstCard,
-            $secondCard,
-            $both;
+        $entry = $(this);
 
-        $entry  = $(this);
         $firstCard  = $entry.find('div:first');
         $secondCard = $entry.find('div:nth-child(2)');
-        $both = $firstCard.add($secondCard);
+        $bothCards  = $firstCard.add($secondCard);
 
         // assign same id to both for later comparison
-        $both.data('id', cards.length);
+        $bothCards.data('id', cards.length);
 
         cards.push($firstCard);
         cards.push($secondCard);
