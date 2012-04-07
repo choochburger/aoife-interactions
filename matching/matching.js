@@ -84,8 +84,7 @@ jQuery(function() {
     },
 
     checkCorrect: function($cards) {
-      var _this = this,
-          $firstCard,
+      var $firstCard,
           $secondCard,
           $bothCards,
           $firstCardContent,
@@ -99,19 +98,29 @@ jQuery(function() {
       $secondCardContent = $secondCard.find('div:first');
 
       if ($firstCardContent.data('match-id') === $secondCardContent.data('match-id')) {
-        $bothCards.addClass('correct');
-        $('.card.face-down').click( $.proxy(_this.cardClick, _this) );
+        this.correct($bothCards);
       } else {
-        $('.card').unbind('click', this.cardClick);
-
-        $bothCards.addClass('incorrect');
-
-        $(document).one('mousedown', function(e) {
-          $bothCards.removeClass('face-up incorrect')
-                    .addClass('face-down');
-          $('.card.face-down').click( $.proxy(_this.cardClick, _this) );
-        });
+        this.incorrect($bothCards);
       }
+    },
+
+    correct: function($cards) {
+      $cards.addClass('correct');
+      $('.card.face-down').click( $.proxy(this.cardClick, this) );
+    },
+
+    incorrect: function($cards) {
+      var _this = this;
+
+      $('.card').unbind('click', this.cardClick);
+
+      $cards.addClass('incorrect');
+
+      $(document).one('mousedown', function(e) {
+        $cards.removeClass('face-up incorrect')
+              .addClass('face-down');
+        $('.card.face-down').click( $.proxy(_this.cardClick, _this) );
+      });
     }
   };
 
